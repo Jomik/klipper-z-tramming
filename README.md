@@ -11,6 +11,7 @@ that do not have separate drivers for the z axis.
   - [How does it work?](#how-does-it-work)
   - [How to use it?](#how-to-use-it)
   - [How to install it?](#how-to-install-it)
+    - [Manual installation](#manual-installation)
   - [How to configure it?](#how-to-configure-it)
   <!--toc:end-->
 
@@ -62,6 +63,49 @@ To ease installation, there is a script you can simply curl and execute.
 ```
 
 Then you only need to configure your lead screw pitch.
+
+### Manual installation
+
+- Clone this repository to your printer's Klipper host.
+
+```sh
+git clone https://github.com/Jomik/klipper-z-tramming.git ~/z_tramming
+```
+
+- Symlink it to your config folder.
+
+```sh
+ln -s ~/klipper-z-tramming/z_tramming.cfg ~/printer_data/config/z_tramming
+```
+
+- Copy the `z_tramming_settings.cfg` to your config folder.
+
+```sh
+cp ~/klipper-z-tramming/z_tramming_settings.cfg ~/printer_data/config/z_tramming_settings.cfg
+```
+
+- Include the macros in your `printer.cfg` by adding these lines:
+
+```cfg
+[include z_tramming_settings.cfg]
+[include ./z_tramming/z_tramming.cfg]
+```
+
+- Add the repo to moonraker
+
+```sh
+cat >>$HOME/printer_data/config/moonraker.conf <<EOF
+[update_manager Z_Tramming]
+type: git_repo
+channel: dev
+path: ~/z_tramming
+origin: $origin
+managed_services: klipper
+primary_branch: main
+EOF
+```
+
+- Update the settings to your liking, see [How to configure it?](#how-to-configure-it).
 
 ## How to configure it?
 
