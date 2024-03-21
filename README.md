@@ -13,6 +13,7 @@ that do not have separate drivers for the z axis.
   - [How to install it?](#how-to-install-it)
     - [Manual installation](#manual-installation)
   - [How to configure it?](#how-to-configure-it)
+  - [Alternatives](#alternatives)
   <!--toc:end-->
 
 ## Why should you use this?
@@ -108,3 +109,8 @@ EOF
 Open `z_tramming_settings.cfg` and uncomment the line with `variable_screw_pitch`,
 set the number to your pitch.
 You can look at the examples in the file for some known values.
+
+## Alternatives
+
+- [Z-tilt via Probe Klipper Macro by gerGO PRINT 3D](https://cults3d.com/en/3d-model/tool/z-markers-for-sovol-sv06-plus)
+- [Klipper_Z_Tramming by GatoMiopia](https://github.com/GatoMiopia/Klipper_Z_Tramming).
