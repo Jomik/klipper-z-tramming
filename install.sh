@@ -18,14 +18,14 @@ function install() {
 
 function backup_file() {
 	local file=$1
-	local date=$(date +"%Y%m%d_%H%M%S")
-	local backup_file="${file}.${date}.bak"
-	echo "Backing up $file to $backup_file"
-	cp "$file" "$backup_file"
+	local stamp=$(date +"%Y%m%d_%H%M%S")
+	local file_bak="${file}.${stamp}.bak"
+	echo "Backing up $file to $file_bak"
+	cp "$file" "$file_bak"
 }
 
 function include_in_config() {
-	backup $HOME/printer_data/config/printer.cfg
+	backup_file "$HOME/printer_data/config/printer.cfg"
 	echo "Including macro and configuration at the top of printer.cfg"
 	ed -s $HOME/printer_data/config/printer.cfg <<EOF
 0 i
@@ -39,7 +39,7 @@ EOF
 }
 
 function add_to_moonraker() {
-	backup_file $HOME/printer_data/config/moonraker.conf
+	backup_file "$HOME/printer_data/config/moonraker.conf"
 	echo "Adding z_tramming to moonraker.conf"
 	cat >>$HOME/printer_data/config/moonraker.conf <<EOF
 [update_manager Z_Tramming]
