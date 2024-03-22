@@ -27,20 +27,20 @@ function backup_file() {
 function include_in_config() {
 	backup_file "$HOME/printer_data/config/printer.cfg"
 	echo "Including macro and configuration at the top of printer.cfg"
-	ed -s $HOME/printer_data/config/printer.cfg <<EOF
-0 i
+	temp_cfg=(mktemp)
+	cat >$temp_cfg <<EOF
 # Include Z_Tramming macro
 # $origin
 [include z_tramming_settings.cfg]
 [include ./z_tramming/z_tramming.cfg]
-.
-w
 EOF
+	cat "$HOME/printer_data/config/printer.cfg" >>$temp_cfg
+	mv $temp_cfg "$HOME/printer_data/config/printer.cfg"
 }
 
 function add_to_moonraker() {
 	backup_file "$HOME/printer_data/config/moonraker.conf"
-	echo "Adding z_tramming to moonraker.conf"
+	echo "Appending z_tramming to moonraker.conf"
 	cat >>$HOME/printer_data/config/moonraker.conf <<EOF
 [update_manager Z_Tramming]
 type: git_repo
