@@ -72,13 +72,13 @@ git clone https://github.com/Jomik/klipper-z-tramming.git ~/z_tramming
 - Symlink it to your config folder.
 
 ```sh
-ln -s ~/klipper-z-tramming/z_tramming.cfg ~/printer_data/config/z_tramming
+ln -s ~/klipper-z-tramming/macros/z_tramming.cfg ~/printer_data/config/z_tramming
 ```
 
 - Copy the `z_tramming_settings.cfg` to your config folder.
 
 ```sh
-cp ~/klipper-z-tramming/z_tramming_settings.cfg ~/printer_data/config/z_tramming_settings.cfg
+cp ~/klipper-z-tramming/macros/z_tramming_settings.cfg ~/printer_data/config/z_tramming_settings.cfg
 ```
 
 - Include the macros in your `printer.cfg` by adding these lines:
