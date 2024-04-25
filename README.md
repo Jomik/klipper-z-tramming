@@ -34,7 +34,7 @@ then calculates the amount you need to rotate one of the motor screws.
 If we have to rotate clockwise by 1 hour and 20 minutes,
 it means that we need to rotate the motor 1 full rotation for the hour,
 then another third of a rotation for the 20 minutes.
-Calculation is done using the pitch of your lead screw.
+Calculation is done using the lead of your lead screw.
 This is the only input you need to provide.
 
 As more people use this and contribute,
@@ -59,7 +59,7 @@ To ease installation, there is a script you can simply curl and execute.
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Jomik/klipper-z-tramming/main/install.sh)"
 ```
 
-Then you only need to configure your lead screw pitch. See [How to configure it?](#how-to-configure-it).
+Then you only need to configure your lead screw lead. See [How to configure it?](#how-to-configure-it).
 
 ### Manual installation
 
@@ -106,8 +106,10 @@ EOF
 
 ## How to configure it?
 
-Open `z_tramming_settings.cfg` and uncomment the line with `variable_screw_pitch`,
-set the number to your pitch.
+Open `z_tramming_settings.cfg` and uncomment the line with `variable_screw_lead`,
+set the number to your lead. The lead is the distance the screw moves in one rotation.
+It is calculated by multiplying the pitch with the number of starts of the screw.
+So a 2mm pitch, 4 start screw has a lead of 8mm.
 You can look at the examples in the file for some known values.
 
 ## Alternatives
