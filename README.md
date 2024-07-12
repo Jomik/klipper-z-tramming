@@ -106,11 +106,8 @@ EOF
 
 ## How to configure it?
 
-Open `z_tramming_settings.cfg` and uncomment the line with `variable_screw_lead`,
-set the number to your lead. The lead is the distance the screw moves in one rotation.
-It is calculated by multiplying the pitch with the number of starts of the screw.
-So a 2mm pitch, 4 start screw has a lead of 8mm.
-You can look at the examples in the file for some known values.
+Open `z_tramming_settings.cfg`.
+There is an example of what values can be configured together with their defaults.
 
 ## Alternatives
 
